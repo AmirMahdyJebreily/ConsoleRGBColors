@@ -3,6 +3,9 @@ using System;
 
 namespace ConsoleRGBColors
 {
+    /// <summary>
+    /// Change console colosrs into rgb colors
+    /// </summary>
     public static class RGBConsole
     {
         private const string _ESC_Code_Sequence_Foreground = "\u001b[38;2;{0};{1};{2}m";
