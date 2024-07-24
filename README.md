@@ -36,6 +36,17 @@ Console.WriteLine($"Use Css {"Color".ChangeStringForeColor(Color.Chocolate)}");
 The result :  
 ![Use Css Colors Results](https://github.com/AmirMahdyJebreily/ConsoleRGBColors/blob/main/docs/assets/use_css_colors.png)
 
+To print a gradient use this codes:   
+```csharp
+// Vertical Gradient
+ConsoleRGBColors.RGBConsole.PrintVerticalGradiant(text, (101, 78, 163), (234, 175, 200));
+
+// Horizontal Gradient
+ConsoleRGBColors.RGBConsole.PrintHorizontalGradiant(text, (0, 159, 255), (236, 47, 75));
+```
+result : 
+![Vertical and Horizontal Gradients Result](https://github.com/AmirMahdyJebreily/ConsoleRGBColors/blob/main/docs/assets/gradients.png)
+
 Fo more information about using, see the [Test](https://github.com/AmirMahdyJebreily/ConsoleRGBColors/blob/main/tests/ConsoleRGBColors.UnitTests/Program.cs)
 
 ![Tests Result](https://github.com/AmirMahdyJebreily/ConsoleRGBColors/blob/main//docs/assets/image.png)
