@@ -179,7 +179,6 @@ namespace ConsoleRGBColors
                 Console.WriteLine(lines[i].ChangeStringForeColor(r, g, b));
             }
         }
-
         #region PrintVerticalGradiant Overloads
         /// <summary>
         /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
@@ -198,6 +197,98 @@ namespace ConsoleRGBColors
         /// <param name="toColor">The to color</param>
         public static void PrintVerticalGradiant(string text, Color fromColor, Color toColor)
             => PrintVerticalGradiant(text, fromColor.R, fromColor.G, fromColor.B, toColor.R, toColor.G, toColor.B);
+        #endregion
+
+        /// <summary>
+        /// This function prints a one-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A one-line text</param>
+        /// <param name="fromColor_R">From color (RED Factor)</param>
+        /// <param name="fromColor_G">From color (GREEN Factor)</param>
+        /// <param name="fromColor_B">From color (BLUE Factor)</param>
+        /// <param name="toColor_R">To color (RED Factor)</param>
+        /// <param name="toColor_G">To color (GREEN Factor)</param>
+        /// <param name="toColor_B">To color (BLUE Factor)</param>
+        public static void PrintOneLineHorizontalGradiant(string text, int fromColor_R, int fromColor_G, int fromColor_B, int toColor_R, int toColor_G, int toColor_B)
+        {
+            int r = fromColor_R,
+                g = fromColor_G,
+                b = fromColor_B;
+
+            char[] chars = text.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                r += (int)((toColor_R - fromColor_R) / chars.Length);
+                g += (int)((toColor_G - fromColor_G) / chars.Length);
+                b += (int)((toColor_B - fromColor_B) / chars.Length);
+                Console.Write(chars[i].ToString().ChangeStringForeColor(r, g, b));
+            }
+        }
+        #region PrintOneLineHorizontalGradiant Overloads
+        /// <summary>
+        /// This function prints a one-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A one-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintOneLineHorizontalGradiant(string text, (int, int, int) fromColor, (int, int, int) toColor)
+            => PrintOneLineHorizontalGradiant(text, fromColor.Item1, fromColor.Item2, fromColor.Item3, toColor.Item1, toColor.Item2, toColor.Item3);
+
+        /// <summary>
+        /// This function prints a one-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A one-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintOneLineHorizontalGradiant(string text, Color fromColor, Color toColor)
+            => PrintOneLineHorizontalGradiant(text, fromColor.R, fromColor.G, fromColor.B, toColor.R, toColor.G, toColor.B);
+        #endregion
+
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor_R">From color (RED Factor)</param>
+        /// <param name="fromColor_G">From color (GREEN Factor)</param>
+        /// <param name="fromColor_B">From color (BLUE Factor)</param>
+        /// <param name="toColor_R">To color (RED Factor)</param>
+        /// <param name="toColor_G">To color (GREEN Factor)</param>
+        /// <param name="toColor_B">To color (BLUE Factor)</param>
+        public static void PrintHorizontalGradiant(string text, int fromColor_R, int fromColor_G, int fromColor_B, int toColor_R, int toColor_G, int toColor_B)
+        {
+            string[] lines = text.Split('\n');
+            int lineLength = 0;
+            foreach (string line in lines)
+            {
+                if(lineLength < line.Length)
+                    lineLength = line.Length;
+            }
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].Length < lineLength)
+                    lines[i] = lines[i].PadRight(lineLength, ' ');
+                PrintOneLineHorizontalGradiant(lines[i], fromColor_R, fromColor_G, fromColor_B, toColor_R, toColor_G, toColor_B);
+                Console.WriteLine();
+            }
+        }
+        #region PrintHorizontalGradiant Overloads
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintHorizontalGradiant(string text, (int, int, int) fromColor, (int, int, int) toColor)
+            => PrintHorizontalGradiant(text, fromColor.Item1, fromColor.Item2, fromColor.Item3, toColor.Item1, toColor.Item2, toColor.Item3);
+
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintHorizontalGradiant(string text, Color fromColor, Color toColor)
+            => PrintHorizontalGradiant(text, fromColor.R, fromColor.G, fromColor.B, toColor.R, toColor.G, toColor.B);
         #endregion
         #endregion
     }
