@@ -147,8 +147,58 @@ namespace ConsoleRGBColors
         /// <returns>It will returns <paramref name="text"/> so that it will be displayed in the display terminal with the rgb background <paramref name="color"/> you enterd</returns>
         public static string ChangeStringBackColor(this string text, Color color)
             => $"{ChangeBackColorChar(color.R, color.G, color.B)}{text}{_ESC_Code_Sequence_Background_Default}";
+
         #endregion
 
+        #endregion
+
+        #region Void Print Functions
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor_R">From color (RED Factor)</param>
+        /// <param name="fromColor_G">From color (GREEN Factor)</param>
+        /// <param name="fromColor_B">From color (BLUE Factor)</param>
+        /// <param name="toColor_R">To color (RED Factor)</param>
+        /// <param name="toColor_G">To color (GREEN Factor)</param>
+        /// <param name="toColor_B">To color (BLUE Factor)</param>
+        public static void PrintVerticalGradiant(string text, int fromColor_R, int fromColor_G, int fromColor_B, int toColor_R, int toColor_G, int toColor_B)
+        {
+            int r = fromColor_R,
+                g = fromColor_G,
+                b = fromColor_B;
+
+            string[] lines = text.Split('\n');
+            Console.WriteLine();
+            for (int i = 0; i < lines.Length; i++)
+            {
+                r += (int)((toColor_R - fromColor_R) / lines.Length);
+                g += (int)((toColor_G - fromColor_G) / lines.Length);
+                b += (int)((toColor_B - fromColor_B) / lines.Length);
+                Console.WriteLine(lines[i].ChangeStringForeColor(r, g, b));
+            }
+        }
+
+        #region PrintVerticalGradiant Overloads
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintVerticalGradiant(string text, (int, int, int) fromColor, (int, int, int) toColor)
+            => PrintVerticalGradiant(text, fromColor.Item1, fromColor.Item2, fromColor.Item3, toColor.Item1, toColor.Item2, toColor.Item3);
+
+        /// <summary>
+        /// This function prints a multi-line <paramref name="text"/> using <code>System.Console.WriteLine()</code> and paints a gradient on it from color (<paramref name="fromColor_R"/>, <paramref name="fromColor_G"/>, <paramref name="fromColor_B"/>) to color (<paramref name="toColor_R"/>, <paramref name="toColor_G"/>, <paramref name="toColor_B"/>).
+        /// </summary>
+        /// <param name="text">A multi-line text</param>
+        /// <param name="fromColor">The from color</param>
+        /// <param name="toColor">The to color</param>
+        public static void PrintVerticalGradiant(string text, Color fromColor, Color toColor)
+            => PrintVerticalGradiant(text, fromColor.R, fromColor.G, fromColor.B, toColor.R, toColor.G, toColor.B);
+        #endregion
         #endregion
     }
 }

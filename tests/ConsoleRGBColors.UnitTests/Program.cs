@@ -1,5 +1,4 @@
 ﻿using ConsoleRGBColors;
-using System.Drawing;
 
 int shiftIndexRight(int n, int maxIndex)
 {
@@ -31,20 +30,7 @@ int r = 255,
     decreaseIndex = 0; // 0, 1, 2
 int[] slopes = new int[3];
 
-var title_sp = title.Split("\n"); // split the big 'Code Agha' Figlet text to make a gradiangt
-Console.WriteLine();
-b = 35; // the gradiant is start from (0, 250, 35) to (0, 250, 255) 
-foreach (var item in title_sp)
-{
-    r = 0;
-    g = 250;
-    b += 20; // in each line, 20 units add into blue factor of colors to make a gradiant
-    Console.WriteLine(item.ChangeStringForeColor(r, g, b));
-}
-// reset the factors :
-r = 255;
-g = 0;
-b = 0;
+ConsoleRGBColors.RGBConsole.PrintVerticalGradiant(title, (101, 78, 163), (234, 175, 200));
 
 Console.WriteLine("Codeagha Console RGB Color Test");
 Console.WriteLine("Github: https://github.com/AmirMahdyJebreily");
