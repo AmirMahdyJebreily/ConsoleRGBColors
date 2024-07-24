@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRGBColors", "src\Con
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DB6C77E3-B276-46D1-87FB-633C0C2A2AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRGBColors.UnitTests", "tests\ConsoleRGBColors.UnitTests\ConsoleRGBColors.UnitTests.csproj", "{1B808AEF-BBD3-4DB0-85FA-825404ACB8C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRGBColors.Test", "tests\ConsoleRGBColors.Tests\ConsoleRGBColors.Test.csproj", "{1B808AEF-BBD3-4DB0-85FA-825404ACB8C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
