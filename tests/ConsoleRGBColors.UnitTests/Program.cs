@@ -7,6 +7,20 @@ int shiftIndexRight(int n, int maxIndex)
     return 0;
 }
 
+string title = """ 
+       █████████               █████              █████████            █████               
+      ███░░░░░███             ░░███               ███░░░░░███          ░░███                
+     ███     ░░░   ██████   ███████   ██████     ░███    ░███   ███████ ░███████    ██████  
+    ░███          ███░░███ ███░░███  ███░░███    ░███████████  ███░░███ ░███░░███  ░░░░░███ 
+    ░███         ░███ ░███░███ ░███ ░███████     ░███░░░░░███ ░███ ░███ ░███ ░███   ███████ 
+    ░░███     ███░███ ░███░███ ░███ ░███░░░      ░███    ░███ ░███ ░███ ░███ ░███  ███░░███ 
+     ░░█████████ ░░██████ ░░████████░░██████     █████   █████░░███████ ████ █████░░████████
+      ░░░░░░░░░   ░░░░░░   ░░░░░░░░  ░░░░░░     ░░░░░   ░░░░░  ░░░░░███░░░░ ░░░░░  ░░░░░░░░ 
+                                                               ███ ░███                      
+                                                              ░░██████  
+ """;
+
+
 int r = 255,
     g = 0,
     b = 0,
@@ -14,6 +28,19 @@ int r = 255,
     decreaseIndex = 0; // 0, 1, 2
 int[] slopes = new int[3];
 
+var title_sp = title.Split("\n");
+Console.WriteLine();
+b = 35;
+foreach (var item in title_sp)
+{
+    r = 0;
+    g = 250;
+    b += 20;
+    Console.WriteLine(item.ChangeStringForeColor(r, g, b));
+}
+r = 255;
+g = 0;
+b = 0;
 Console.WriteLine("Codeagha Console RGB Color Test");
 Console.WriteLine("Github: https://github.com/AmirMahdyJebreily");
 
