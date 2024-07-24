@@ -31,6 +31,7 @@ int r = 255,
 int[] slopes = new int[3];
 
 ConsoleRGBColors.RGBConsole.PrintVerticalGradiant(title, (101, 78, 163), (234, 175, 200));
+ConsoleRGBColors.RGBConsole.PrintVerticalGradiant(title, (0, 159, 255), (236, 47, 75));
 
 Console.WriteLine("Codeagha Console RGB Color Test");
 Console.WriteLine("Github: https://github.com/AmirMahdyJebreily");
