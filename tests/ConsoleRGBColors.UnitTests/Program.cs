@@ -1,4 +1,5 @@
 ﻿using ConsoleRGBColors;
+using System.Drawing;
 
 int shiftIndexRight(int n, int maxIndex)
 {
@@ -21,29 +22,34 @@ string title = """
  """;
 
 
+// define red and green adn blue factors variables
 int r = 255,
     g = 0,
     b = 0,
+// define variables for increase and decrease the factors
     additiveIndex = 1, // 0, 1, 2
     decreaseIndex = 0; // 0, 1, 2
 int[] slopes = new int[3];
 
-var title_sp = title.Split("\n");
+var title_sp = title.Split("\n"); // split the big 'Code Agha' Figlet text to make a gradiangt
 Console.WriteLine();
-b = 35;
+b = 35; // the gradiant is start from (0, 250, 35) to (0, 250, 255) 
 foreach (var item in title_sp)
 {
     r = 0;
     g = 250;
-    b += 20;
+    b += 20; // in each line, 20 units add into blue factor of colors to make a gradiant
     Console.WriteLine(item.ChangeStringForeColor(r, g, b));
 }
+// reset the factors :
 r = 255;
 g = 0;
 b = 0;
+
 Console.WriteLine("Codeagha Console RGB Color Test");
 Console.WriteLine("Github: https://github.com/AmirMahdyJebreily");
 
+// print a horizontal colors gradiant : 
 for (int i = 1; i < 7; i++)
 {
     if (i % 2 != 0)
@@ -66,7 +72,7 @@ for (int i = 1; i < 7; i++)
         Console.Write("#".ChangeStringForeColor(r, g, b).ChangeStringBackColor(r, g, b));
     }
 }
-Console.ResetColor();
+// create a vertical colors gradiants
 Console.WriteLine("\nFor Continue Press any button...");
 Console.ReadKey();
 for (int i = 1; i < 7; i++)

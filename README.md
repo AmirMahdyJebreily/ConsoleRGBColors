@@ -26,3 +26,19 @@ Now you able to change ForeColor or BackColor of any string in any part of the t
 Console.WriteLine($"Test {"Color".ChangeStringForeColor(255,71,71)}");
 Console.WriteLine($"Test {"Color".ChangeStringBackColor(255,71,71)}");
 ```
+The result :    
+![Test colors Result](/docs/assets/test_color.png)
+
+Also you can use css default colors which in `Color` struct like this :
+```csharp
+Console.WriteLine($"Use Css {"Color".ChangeStringForeColor(Color.Chocolate)}");
+```
+The result :  
+![Use Css Colors Results](/docs/assets/use_css_colors.png)
+
+Fo more information about using, see the [Test](https://github.com/AmirMahdyJebreily/ConsoleRGBColors/blob/main/tests/ConsoleRGBColors.UnitTests/Program.cs)
+
+![Tests Result](/docs/assets/image.png)
+
+---
+thank you for star this project and submit issues in github ❤️
