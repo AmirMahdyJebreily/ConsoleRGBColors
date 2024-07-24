@@ -3,7 +3,7 @@ Unfortunately, the .NET core does not have the ability for professional color sc
 ## Intall
 ### Use Nuget
 ```bash
-dotnet add package ConsoleRGBColors --version 1.0.1
+dotnet add package ConsoleRGBColors --version 1.0.2
 ```
 ### Build the Source 
 You can clone the repo and build the package dll file with the following commands:
